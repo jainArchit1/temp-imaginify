@@ -18,7 +18,7 @@ import mongoose, { Document, Schema, model, models, mongo } from "mongoose";
 
 const userSchema = new Schema({
   clerkId: {
-    type: any,
+    type: Schema.Types.Mixed, // object or string
     unique: true,
   },
   email: {
