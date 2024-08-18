@@ -1,7 +1,6 @@
-
 import mongoose, { Document, Schema, model, models, mongo } from "mongoose";
 
-// clerkId , name ,email,userName,photo ,creditBalance ,PlanId 
+// clerkId , name ,email,userName,photo ,creditBalance ,PlanId
 
 // export interface IUser extends Document {
 
@@ -17,64 +16,41 @@ import mongoose, { Document, Schema, model, models, mongo } from "mongoose";
 
 // }
 
-
 const userSchema = new Schema({
+  clerkId: {
+    type: any,
+    unique: true,
+  },
+  email: {
+    type: String,
+    unique: true,
+  },
+  username: {
+    type: String,
 
-    clerkId :{
+    unique: true,
+  },
+  photo: {
+    type: String,
+  },
+  firstName: {
+    type: String,
+  },
+  lastName: {
+    type: String,
+  },
+  creditBalance: {
+    type: Number,
 
-        type:String,
-        required:true,
-        unique:true,
+    default: 10,
+  },
 
-    },
-    email:{
+  planId: {
+    type: Number,
+    default: 1,
+  },
+});
 
-        type:String,
-        required:true,
-        unique:true,
-
-    },
-    username:{
-
-        type:String,
-        required:true,
-        unique:true
-
-    },
-    photo:{
-
-        type:String,
-
-    },
-    firstName:{
-
-        type:String,
-        required:true
-    },
-    lastName:{
-
-        type:String,
-        required:true
-    },
-    creditBalance:{
-
-        type:Number,
-        required:true,
-        default:10
-
-    },
-
-    planId:{
-
-        type:Number,
-        default:1,
-
-
-    }
-})
-
-const User = models?.User || mongoose.model("User",userSchema);
+const User = models?.User || mongoose.model("User", userSchema);
 
 export default User;
-
-
