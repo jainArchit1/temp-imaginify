@@ -10,7 +10,7 @@ import { revalidatePath } from "next/cache";
 // create the new User
 export async function createUser(user: any) {
   try {
-    console.log("hellow jii ");
+    console.log("hellow jiij olikugjyfht  ");
 
     await connectToDatabase();
 

@@ -1,13 +1,9 @@
-import { clerkMiddleware, getAuth } from "@clerk/nextjs/server";
-import { NextRequest, NextResponse } from "next/server";
+import { authMiddleware } from "@clerk/nextjs/server";
 
-// Custom middleware
-export async function middleware(req: NextRequest) {
-  // Continue to the next middleware or request handler
-  return NextResponse.next();
-}
+export default authMiddleware({
+  publicRoutes: ["/", "/api/webhooks/clerk", "/api/webhooks/stripe"],
+});
 
-// Clerk's middleware function
 export const config = {
-  matcher: ["/((?!.*\\..*|_next|api/webhooks/.*).*)", "/", "/(api|trpc)(.*)"],
+  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
 };

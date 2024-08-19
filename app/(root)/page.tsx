@@ -1,20 +1,16 @@
+import React from "react";
 
-import React from 'react'
+import { UserButton } from "@clerk/nextjs";
 
-import { UserButton } from '@clerk/nextjs'
+import { auth } from "@clerk/nextjs";
 
 const Home = () => {
-    return (
-
-        <div>
-
-            <UserButton afterSignOutUrl='/'></UserButton>
-
-        </div>
-
-
-    )
-}
+  const { userId } = auth();
+  return (
+    <div>
+      <UserButton afterSignOutUrl="/"></UserButton>
+    </div>
+  );
+};
 
 export default Home;
-
